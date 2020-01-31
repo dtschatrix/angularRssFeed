@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RssListComponent } from './rss-list/rss-list.component';
 import { RssThumbnailComponent } from './rss-thumbnail/rss-thumbnail.component';
 import { RssSearchService } from './rss-search/rss-search.service';
+import { RssSearchComponent } from './rss-search/rss-search.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import { RssSearchService } from './rss-search/rss-search.service';
     RssListComponent,
     RssThumbnailComponent,
     RssSearchService,
-
+    RssSearchComponent
   ],
   imports: [
     CommonModule,
