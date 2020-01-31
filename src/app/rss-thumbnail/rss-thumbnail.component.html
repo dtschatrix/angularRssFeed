@@ -1,0 +1,9 @@
+<div>
+  <p>{{rss?.feed}}</p>
+  <ul *ngFor="let rsstext of rss | async">
+  <p> info: {{rsstext?.message}}</p>
+  <p> rss status: {{rsstext?.status}} </p>
+  <img src={{rsstext?.feed.image}}>
+  </ul>
+
+</div>

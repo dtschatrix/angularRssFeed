@@ -1,15 +1,5 @@
-export interface RssInterface {
-  message?: string,
-  status : string,
-  feed? : {
-    url?: string,
-    title?: string,
-    link?: URL,
-    author?: string,
-    description?: string,
-    image?: URL
-  },
-  items?: [{
+export interface NewsPost {
+  items?: {
     title?: string,
     pubDate?: Date,
     link?: URL,
@@ -22,7 +12,5 @@ export interface RssInterface {
       link? : URL
         },
     categories?: string[]
-  }]
+  }
 }
-
-
