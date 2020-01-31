@@ -3,7 +3,8 @@ import {RssSearchService} from '../rss-search/rss-search.service';
 import {NewsPost} from '../rss/NewsPostInterface.component';
 import { RssListComponent } from '../rss-list/rss-list.component';
 import { RssInterface } from '../rss/RssInterface.component';
-import {Observable} from 'rxjs'
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class RssThumbnailComponent{
   //public NewsObserv: Observable<NewsPost>
   //test = this.RssObs.getJsonObservable("http://feeds.twit.tv/brickhouse.xml").pipe(map(info =>this.rss = info));
   constructor(private RssObs: RssSearchService ){
-    this.rssObserv = this.RssObs.getJsonObservable(this.RssObs.test);
+    this.rssObserv = this.RssObs.getJsonObservable("http://feeds.twit.tv/brickhouse.xml");
   }
 
   getData(link:string): void{

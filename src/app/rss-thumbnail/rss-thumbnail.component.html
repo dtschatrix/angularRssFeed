@@ -1,9 +1,9 @@
-<div>
-  <p>{{rssObserv?.feed}}</p>
-  <ul *ngFor="let rsstext of rssObserv | async">
-  <p> info: {{rsstext?.message}}</p>
-  <p> rss status: {{rsstext?.status}} </p>
-  <img src={{rsstext?.feed.image}}>
+<div *ngIf="rssObserv | async; let rssObservAsync">
+  <p>{{rssObserv.status}}</p>
+  <ul *ngFor="let item of rssObservAsync.items">
+    <p> info: {{item.title}}</p>
+    <p> rss status: {{item.pubDate}} </p>
+    <!-- <img src={{item.feed.image}}> -->
   </ul>
 
 </div>
