@@ -1,9 +1,20 @@
-<div *ngIf="rssObserv | async; let rssObservAsync">
+<!-- <div *ngIf="rssObserv | async; let rssObservAsync">
   <p>{{rssObserv.status}}</p>
   <ul *ngFor="let item of rssObservAsync.items">
     <p> info: {{item.title}}</p>
-    <p> rss status: {{item.pubDate}} </p>
-    <!-- <img src={{item.feed.image}}> -->
+    <p> rss status: {{item.pubDate}} </p> -->
+    <!-- <img src={{item.feed.image}}> 
   </ul>
 
 </div>
+ -->
+ <div *ngIf="test_string">
+   <h2>string exists</h2>
+   <h3>{{test_string}}</h3>
+ </div>
+ <div *ngIf="RssData | async; let rssObservAsync">
+  <ul *ngFor = "let item of rssObservAsync.items">
+        <p>info: {{item.title}} </p>
+  </ul>
+
+ </div>

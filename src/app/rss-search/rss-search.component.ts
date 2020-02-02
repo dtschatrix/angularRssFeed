@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { RssListComponent } from '../rss-list/rss-list.component';
 import {RssSearchService} from './rss-search.service';
-import { RssThumbnailComponent } from '../rss-thumbnail/rss-thumbnail.component';
+import { RssInterface } from '../rss/RssInterface.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'rss-search-component',
@@ -11,15 +12,12 @@ import { RssThumbnailComponent } from '../rss-thumbnail/rss-thumbnail.component'
 
 
 export class RssSearchComponent {
-@Input()
-rssfeed: RssThumbnailComponent;
+  rssData:Observable<RssInterface>;
   constructor(private rss:RssSearchService) { }
-  test_field: any;
-  SetServiceField(full_path:string){
-    this.test_field = this.rss.setTest(full_path);
-    console.log(this.test_field);
-    console.log(this.rss.test);
+  test:string = "sometext";
+  RunService(link){
+    this.rssData = this.rss.getJsonObservable(link);
   }
-
+  
 
 }

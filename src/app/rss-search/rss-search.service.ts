@@ -18,15 +18,10 @@ export class RssSearchService {
   test: any;
 
   getFullUrl(link:string): string{
-    console.log(this.apiCall + link + "&" + this.api_key);
     return this.apiCall + link + "&" + this.api_key;
   }
   getJsonObservable(link:string): Observable<RssInterface>{
     return this.http.get<RssInterface>(this.getFullUrl(link));
     //return this.http.get<NewsPost>(this.getFullUrl(link));
-  }
-
-  setTest(value: any) {
-    this.test = value;
   }
 }
