@@ -1,6 +1,7 @@
+
 export interface RssInterface {
   message?: string,
-  status : string,
+  status? : string,
   feed? : {
     url?: string,
     title?: string,

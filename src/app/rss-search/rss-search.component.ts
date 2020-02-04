@@ -12,9 +12,8 @@ import { Observable } from 'rxjs';
 
 
 export class RssSearchComponent {
-  rssData:Observable<RssInterface>;
+  rssData:Observable<RssInterface> | RssInterface;
   constructor(private rss:RssSearchService) { }
-  test:string = "sometext";
   RunService(link){
     this.rssData = this.rss.getJsonObservable(link);
   }

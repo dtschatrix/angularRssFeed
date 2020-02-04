@@ -8,13 +8,20 @@
 
 </div>
  -->
- <div *ngIf="test_string">
-   <h2>string exists</h2>
-   <h3>{{test_string}}</h3>
- </div>
- <div *ngIf="RssData | async; let rssObservAsync">
-  <ul *ngFor = "let item of rssObservAsync.items">
-        <p>info: {{item.title}} </p>
-  </ul>
-
- </div>
+ <div class ="container p-align-center">
+  <div *ngIf="RssData | async; let rss">
+    <div class ="text-center">
+    <h4 >News provided by: 
+     <p>{{rss.feed.title}}</p> 
+    </h4>
+  </div>
+    <div class="p-grid p-justify-between">
+    <div class= "p-col-5 p-xs-6 " *ngFor="let item of rss.items">
+      <div class=" d-inline-block bg-warning container border" style="max-width:550px;">
+        <p>{{item.title}}</p>
+        <p>{{item.pubDate}}</p>
+      </div>
+        </div>
+      </div>
+    </div>  
+  </div> 

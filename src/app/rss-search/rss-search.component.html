@@ -1,11 +1,18 @@
-<div class ="p-3 mb-2 bg-info text-black container">
-  <div class="input-group mb-3">
+<div class ="text-center ">
+  <h1 class ="display-4">RssFeedReader</h1>
+    <p class = "lead">
+      Input the URL of your rss page and get fancy readable text ;)
+    </p>
+</div>
+
+<div class ="p-4 mb-1 bg-info text-black container align-center">
+  <div class="input-group mb-2">
     <input #box type="text" class="form-control" placeholder="URL" aria-label="Recipient's username" aria-describedby="basic-addon2">
     <div class="input-group-append">
-    <button class="btn btn-primary" type="button">search</button>
-    <button class="btn btn-primary" type="button"(click) = "RunService(box.value)">RunService</button>
+    <button class="btn btn-primary" type="button"(click) = "RunService(box.value)">Search</button>
     </div>
   </div>
   </div>
+  
   <rss-thumbnail [RssData]='rssData'></rss-thumbnail>
-  <rss-thumbnail [test_string]="'string'"></rss-thumbnail>
+ 

@@ -1,0 +1,15 @@
+body {
+    background: #e7bb41 !important;
+
+}
+
+img {
+    min-width: 100px;
+    min-height: 25px;
+    max-width: 120px;
+    max-height: 60px;
+}
+
+.container {
+    background: #e7bb41 !important;
+}

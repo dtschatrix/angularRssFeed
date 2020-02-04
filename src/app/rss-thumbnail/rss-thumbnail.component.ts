@@ -16,12 +16,12 @@ import {Observable} from 'rxjs';
 export class RssThumbnailComponent{
   public rssObserv: Observable<RssInterface>;
   //public NewsObserv: Observable<NewsPost>
-  constructor(private RssObs: RssSearchService ){
-    /* this.rssObserv = this.RssObs.getJsonObservable("http://feeds.twit.tv/brickhouse.xml"); */
+  constructor(private RssObs: RssSearchService){
+    // this.RssData = this.RssObs.getJsonObservable("http://feeds.twit.tv/brickhouse.xml"); 
   }
   @Input() RssData:Observable<RssInterface>;
-  @Input() test_string: string;
-
+    
+  
 
   }
 
