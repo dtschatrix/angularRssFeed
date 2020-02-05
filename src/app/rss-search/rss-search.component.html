@@ -10,9 +10,10 @@
     <input #box type="text" class="form-control" placeholder="URL" aria-label="Recipient's username" aria-describedby="basic-addon2">
     <div class="input-group-append">
     <button class="btn btn-primary" type="button"(click) = "RunService(box.value)">Search</button>
+    <button class="btn btn-primary" type="button"(click) = "GetNews(box.value)">News</button>
     </div>
   </div>
   </div>
   
   <rss-thumbnail [RssData]='rssData'></rss-thumbnail>
- 
+  <rss-extra [NewsPost]='rssNews'></rss-extra>

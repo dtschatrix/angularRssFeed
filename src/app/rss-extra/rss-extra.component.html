@@ -1,18 +1,20 @@
 <div class="container">
-    <img [src] = "rss.feed.image", [alt] ="rss.feed.title">
-
+<div *ngIf="NewsPost | async; let NewsPostAsync">
+    <!-- <img [src] = "rss.feed.image", [alt] ="rss.feed.title">
+ -->
     <div class ="row">
         <div class ="col-md-11">
-            <h2>{{rssExtra.title}}</h2>
+            <h2>{{NewsPostAsync.title}}</h2>
         </div>
     </div>
 
     <div class="row">
         <div class ="col-md-6">
-            <div>{{rssExtra.content}}</div>
+            <div>{{NewsPostAsync.pubDate}}</div>
         </div>
         <div class="col-xs">
-            <div>{{rssExtra.cater}}</div>
+            <div>{{NewsPostAsync.description}}</div>
         </div>
     </div>
+</div>
 </div>

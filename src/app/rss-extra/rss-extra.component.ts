@@ -1,17 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { RssSearchService } from '../rss-search/rss-search.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { RssListComponent } from '../rss-list/rss-list.component';
+import { NewsPost } from '../rss/NewsPostInterface.component';
+import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-rss-extra',
+  selector: 'rss-extra',
   templateUrl: './rss-extra.component.html',
-  styleUrls: ['./rss-extra.component.css']
+  styleUrls: ['./rss-extra.component.css'],
+  providers:[RssListComponent]
 })
-export class RssExtraComponent implements OnInit {
-  event:any;
-  constructor(private rss:RssSearchService) { }
 
-  ngOnInit() {
-      //this.event = this.rss.getJsonObservable()
-  }
 
+export class RssExtraComponent {
+  constructor() { }
+  @Input() NewsPost:NewsPost
+  
 }

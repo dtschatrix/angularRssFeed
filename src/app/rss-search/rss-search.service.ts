@@ -1,9 +1,10 @@
 import { Component, Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http"
 import {RssInterface} from "../rss/RssInterface.component"
-import {  throwError} from 'rxjs';
-import { catchError, tap} from 'rxjs/operators';
+import {  throwError, of} from 'rxjs';
+import { catchError, tap, map} from 'rxjs/operators';
 import { ToastrService} from 'ngx-toastr';
+import { NewsPost } from '../rss/NewsPostInterface.component';
 
 @Component({
   selector: 'rss-search-service',
@@ -33,10 +34,13 @@ export class RssSearchService {
         );
               }
    
-  /*  getItemByTitle(rss:RssInterface){
-      return .pipe(
-        map(find(item => rss.items.title === title))
-      ) 
-    }        */
-   }
+   getNewsPostObservable(link:string){
+     return this.http.get<NewsPost>(this.getFullUrl(link)).pipe(
+       map(data =>{
+         return data["items"][0];
+       })
+     );
 
+   }  
+}
+   

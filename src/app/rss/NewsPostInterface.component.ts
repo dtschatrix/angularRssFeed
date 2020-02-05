@@ -1,5 +1,4 @@
 export interface NewsPost {
-  items?: {
     title?: string,
     pubDate?: Date,
     link?: URL,
@@ -13,4 +12,3 @@ export interface NewsPost {
         },
     categories?: string[]
   }
-}
