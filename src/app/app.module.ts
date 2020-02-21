@@ -2,17 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import {CommonModule} from '@angular/common'
-import { NavBarComponent } from "./html/nav/nav-bar.component";
+import { NavBarComponent } from './html/nav/nav-bar.component';
 import { HttpClientModule } from '@angular/common/http';
-import { RssListComponent } from './rss-list/rss-list.component';
-import { RssThumbnailComponent } from './rss-thumbnail/rss-thumbnail.component';
-import { RssSearchService } from './rss-search/rss-search.service';
-import { RssSearchComponent } from './rss-search/rss-search.component';
+import { RssListComponent } from './rss/list/rss-list.component';
+import { RssThumbnailComponent } from './rss/thumbnail/rss-thumbnail.component';
+import { RssSearchComponent } from './rss/search/rss-search.component';
 import { ToastrModule } from 'ngx-toastr';
-import {  RssRoutingModule } from './rss/rss-routing.module';
-import { RssExtraComponent } from './rss-extra/rss-extra.component';
+import { RssRoutingModule } from './rss/rss-routing.module';
+import { RssExtraComponent } from './rss/extra/rss-extra.component';
 import { RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
+import { AppComponent } from './app/app.component';
 
 
 @NgModule({
@@ -20,10 +20,10 @@ import { AboutComponent } from './about/about.component';
     NavBarComponent,
     RssListComponent,
     RssThumbnailComponent,
-    RssSearchService,
     RssSearchComponent,
     AboutComponent,
-    RssExtraComponent
+    RssExtraComponent,
+    AppComponent
   ],
   imports: [
     CommonModule,
@@ -32,9 +32,9 @@ import { AboutComponent } from './about/about.component';
     HttpClientModule,
     RouterModule.forRoot([]),
     RssRoutingModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
   ],
-  providers: [RssSearchService],
+  providers : [],
   bootstrap: [NavBarComponent]
 })
 export class AppModule { }

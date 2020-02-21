@@ -1,0 +1,21 @@
+<div *ngIf="RssData | async; let rss">
+ <div class ="container p-align-center"> 
+    <div class ="text-center">
+    <h4 >News provided by: 
+     <p>{{rss.Feed.Title}}</p>
+     <p>{{rss.Id}}</p> 
+    </h4>
+  </div>
+    <div class="p-grid p-justify-between">
+    <div class= "p-col-5 p-xs-6 " [routerLink]="['/rssfeed',item.Id ]" (click) = "GetNews(rssNewsPost, item.Id)" routerLinkActive="router-link-active"  *ngFor="let item of rss.Items">   
+      <div class=" d-inline-block bg-warning container border w-75 h-100" style="max-width:550px;">
+        <p>{{item.Title}}</p>
+        <p>{{item.Id}}</p>
+        <p>{{item.PubDate}}</p>
+      </div>
+        </div>
+      </div>
+    </div>  
+  </div> 
+<router-outlet></router-outlet>
+

@@ -1,8 +1,7 @@
-import { Component } from "@angular/core";
-import { RssRoutingModule} from "../../rss/rss-routing.module"
+import { Component } from '@angular/core';
 
 @Component({
-  selector:'nav-bar',
+  selector: 'app-nav-bar',
   templateUrl: './nav-bar.html',
   styleUrls: ['./nav-bar.component.css']
 })
