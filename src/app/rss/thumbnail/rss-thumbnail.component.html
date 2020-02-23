@@ -6,8 +6,8 @@
      <p>{{rss.Id}}</p> 
     </h4>
   </div>
-    <div class="p-grid p-justify-between">
-    <div class= "p-col-5 p-xs-6 " [routerLink]="['/rssfeed',item.Id ]" (click) = "GetNews(rssNewsPost, item.Id)" routerLinkActive="router-link-active"  *ngFor="let item of rss.Items">   
+    <div class="p-grid p-justify-between" *ngFor="let item of rss.Items">
+    <div class= "p-col-5 p-xs-6 " [routerLink]="['/rssfeed', item.Id]" (click) = "GetNews(rssData, item.Id)" routerLinkActive="router-link-active">   
       <div class=" d-inline-block bg-warning container border w-75 h-100" style="max-width:550px;">
         <p>{{item.Title}}</p>
         <p>{{item.Id}}</p>

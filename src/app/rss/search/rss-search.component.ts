@@ -14,7 +14,7 @@ import { NewsItem } from '../Interfaces/NewsItemInterface.component';
 
 export class RssSearchComponent {
   rssNewsPost: Observable<NewsPost>;
-  rssItem: Observable<NewsItem>;
+  public rssItem: Observable<NewsItem>;
   constructor(private rss: RssSearchService) { }
   RunService(link: string) {
     return this.rssNewsPost = this.rss.getJsonObservable(link);

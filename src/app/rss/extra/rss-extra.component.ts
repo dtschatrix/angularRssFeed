@@ -1,6 +1,4 @@
-import { Component, Input} from '@angular/core';
-import { RssListComponent } from '../list/rss-list.component';
-import { NewsPost } from '../Interfaces/NewsPostInterface.component';
+import { Component, Input, OnInit} from '@angular/core';
 import { RssSearchService } from '../search/rss-search.service';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
@@ -11,15 +9,18 @@ import { NewsItem } from '../Interfaces/NewsItemInterface.component';
   selector: 'app-rss-extra',
   templateUrl: './rss-extra.component.html',
   styleUrls: ['./rss-extra.component.css'],
-  providers: [RssListComponent]
 })
 
 
-export class RssExtraComponent {
-   data: Observable<NewsItem>;
+export class RssExtraComponent implements OnInit {
+  NewsData:Observable<NewsItem>
   constructor(private RssService: RssSearchService, private route: ActivatedRoute) {
-     const id: any = route.snapshot.params.Id;
-     this.data = RssService.getNewsItem(this.RssData, id);
+     
    }
-  @Input() RssData: Observable<NewsPost>;
+
+   ngOnInit(){
+      this.NewsData = this.RssService.data;
+
+
+   }
 }

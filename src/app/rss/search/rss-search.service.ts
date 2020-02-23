@@ -12,9 +12,10 @@ import {ToastrService} from 'ngx-toastr';
 })
 export class RssSearchService {
   data: Observable<NewsItem>;
+  service: Observable<NewsPost>
   constructor(private http: HttpClient, private toast: ToastrService){ }
   getJsonObservable(link: string) {
-    return this.http.
+    return this.service =  this.http.
     get<NewsPost>('https://localhost:44302/api/json/?url=' + link)
     .pipe(
         catchError(err => {
@@ -26,11 +27,10 @@ export class RssSearchService {
         );
   }
 
-   getNewsItem(obs: Observable<NewsPost>, id: number): Observable<NewsItem> {
-     return this.data = obs.pipe(map(
+   getNewsItem(obs: Observable<NewsPost>, id: any): Observable<NewsItem> {
+     return this.data = this.service.pipe(map(
        data => {
-         const itemList = data['Items'];
-         return itemList.find(item => item.Id === id);
+         return data['Items'][id];         
        }
      ));
     }
