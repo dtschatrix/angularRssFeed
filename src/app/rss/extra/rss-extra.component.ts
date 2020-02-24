@@ -13,14 +13,12 @@ import { NewsItem } from '../Interfaces/NewsItemInterface.component';
 
 
 export class RssExtraComponent implements OnInit {
-  NewsData:Observable<NewsItem>
+  NewsData: NewsItem;
+
   constructor(private RssService: RssSearchService, private route: ActivatedRoute) {
-     
    }
 
-   ngOnInit(){
-      this.NewsData = this.RssService.data;
-
-
+   ngOnInit() {
+      this.RssService.currentData.subscribe(newsItem => this.NewsData = newsItem.Items.find(this.route.snapshot.paramMap.get["Id"]));
    }
 }

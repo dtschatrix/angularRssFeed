@@ -14,13 +14,14 @@ import { NewsItem } from '../Interfaces/NewsItemInterface.component';
 
 export class RssSearchComponent {
   rssNewsPost: Observable<NewsPost>;
-  public rssItem: Observable<NewsItem>;
+  rssItem: Observable<NewsItem>;
   constructor(private rss: RssSearchService) { }
   RunService(link: string) {
-    return this.rssNewsPost = this.rss.getJsonObservable(link);
-  }
-  GetNews(rssNewsPost: Observable<NewsPost>, id: number): Observable<NewsItem> {
-    return this.rssItem = this.rss.getNewsItem(this.rssNewsPost, id);
+  return this.rss.getJsonObservable(link);
     }
+  GetNews(id: number) {
+    return this.rss.getNewsItem(id);
+  }
+
 
 }

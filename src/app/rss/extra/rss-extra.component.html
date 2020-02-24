@@ -1,4 +1,7 @@
 <div class="container">
+    <div *ngIf="NewsData">
+        <p>{{NewsData.Id}}</p>
+    </div>
 <div *ngIf="NewsData | async; let NewsPostAsync">
     <!-- <img [src] = "rss.feed.image", [alt] ="rss.feed.title">
  -->

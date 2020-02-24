@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {NewsItem} from '../Interfaces/NewsItemInterface.component';
 import {NewsPost} from '../Interfaces/NewsPostInterface.component';
-import { throwError, Observable, pipe} from 'rxjs';
+import { throwError, BehaviorSubject, Observable, pipe} from 'rxjs';
 import {catchError, tap, map} from 'rxjs/operators';
 import {ToastrService} from 'ngx-toastr';
 
@@ -11,11 +10,12 @@ import {ToastrService} from 'ngx-toastr';
     providedIn: 'root',
 })
 export class RssSearchService {
-  data: Observable<NewsItem>;
-  service: Observable<NewsPost>
+
+  private data = new BehaviorSubject<NewsPost>(null);
+  currentData = this.data.asObservable();
   constructor(private http: HttpClient, private toast: ToastrService){ }
   getJsonObservable(link: string) {
-    return this.service =  this.http.
+    this.currentData = this.http.
     get<NewsPost>('https://localhost:44302/api/json/?url=' + link)
     .pipe(
         catchError(err => {
@@ -27,11 +27,11 @@ export class RssSearchService {
         );
   }
 
-   getNewsItem(obs: Observable<NewsPost>, id: any): Observable<NewsItem> {
-     return this.data = this.service.pipe(map(
-       data => {
-         return data['Items'][id];         
-       }
-     ));
+   getNewsItem(id: number) {
+     this.currentData.pipe(map(
+       dataItem => {
+         const itemlist = dataItem.Items;
+         return itemlist.find(item => item.Id === id);
+       }));
+      }
     }
-  }
