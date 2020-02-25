@@ -12,11 +12,11 @@ import { NewsItem } from '../interfaces/NewsItemInterface';
 })
 export class RssSearchService {
 
-  private data = new BehaviorSubject<NewsPost>(null);
-  currentData = this.data.asObservable();
+  private bs_data = new BehaviorSubject<NewsPost>(null);
+  currentData = this.bs_data.asObservable();
   constructor(private http: HttpClient, private toast: ToastrService){ }
   getJsonObservable(link: string) {
-    this.currentData = this.http.
+    return this.http.
     get<NewsPost>('https://localhost:44302/api/json/?url=' + link)
     .pipe(
         catchError(err => {
@@ -26,6 +26,9 @@ export class RssSearchService {
             ),
         tap(() => this.toast.success('Rss component successfully created'))
         );
+  }
+  updateData(data){
+    this.bs_data.next(data);
   }
 
 getNewsItem(id: number) {

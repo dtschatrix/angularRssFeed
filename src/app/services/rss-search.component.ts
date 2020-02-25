@@ -1,5 +1,7 @@
 import { Component} from '@angular/core';
 import {RssSearchService} from './rss-search.service';
+import { Observable } from 'rxjs';
+import { NewsPost } from '../interfaces/NewsPostInterface';
 
 @Component({
   selector: 'app-rss-search',
@@ -9,11 +11,13 @@ import {RssSearchService} from './rss-search.service';
 
 export class RssSearchComponent {
 
-  data: any;
+  rssItem: any;
   constructor(private rss: RssSearchService) { }
 
   RunService(link: string) {
-  return this.rss.getJsonObservable(link);
+   let data = this.rss.getJsonObservable(link);
+   this.rssItem =  this.rss.updateData(data);
+   return this.rssItem;
   }
 
   GetNews(id: number) {

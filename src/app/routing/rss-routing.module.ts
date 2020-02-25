@@ -9,7 +9,7 @@ import { RssSearchComponent } from '../services/rss-search.component';
 const routes: Routes = [
   {path: '', component: RssSearchComponent},
   {path: 'about', component: AboutComponent},
-  {path: 'feed/:id', component: RssExtraComponent, canActivate: [RssRouteActivator]},
+  {path: 'feed/:id', component: RssExtraComponent},
   {path: '**', component: PageNotFoundComponent }
   ];
 

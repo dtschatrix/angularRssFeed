@@ -2,6 +2,7 @@ import { Component, Input, OnInit} from '@angular/core';
 import { NewsPost } from '../../interfaces/NewsPostInterface';
 import {Observable} from 'rxjs';
 import { RssSearchService } from '../../services/rss-search.service';
+import { RssSearchComponent } from 'src/app/services/rss-search.component';
 
 @Component({
   selector: 'app-rss-thumbnail',
@@ -10,18 +11,17 @@ import { RssSearchService } from '../../services/rss-search.service';
 
 export class RssThumbnailComponent implements OnInit {
 
-  @Input() RssData: Observable<NewsPost>;
+  @Input() RssData: any;
 
   item: NewsPost;
 
-  constructor(private rss: RssSearchService) { }
+  constructor(private rss: RssSearchComponent) {}
 
   ngOnInit(): void {
-    this.rss.currentData.subscribe(data => this.item = data);
   }
 
   GetNewsItem(id: number) {
-    this.rss.getNewsItem(id);
+    //this.rss.getNewsItem(id);
   }
 
 }
