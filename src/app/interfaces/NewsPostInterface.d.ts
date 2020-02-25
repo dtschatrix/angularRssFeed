@@ -1,4 +1,4 @@
-import { NewsItem } from './NewsItemInterface.component';
+import { NewsItem } from './NewsItemInterface';
 
 export interface NewsPost {
    NewsId?: number;

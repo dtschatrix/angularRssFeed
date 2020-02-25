@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {NewsPost} from '../Interfaces/NewsPostInterface.component';
+import {NewsPost} from '../interfaces/NewsPostInterface';
 import { throwError, BehaviorSubject, Observable, pipe} from 'rxjs';
 import {catchError, tap, map} from 'rxjs/operators';
 import {ToastrService} from 'ngx-toastr';
+import { NewsItem } from '../interfaces/NewsItemInterface';
 
 
 @Injectable({
@@ -27,7 +28,7 @@ export class RssSearchService {
         );
   }
 
-   getNewsItem(id: number) {
+getNewsItem(id: number) {
      this.currentData.pipe(map(
        dataItem => {
          const itemlist = dataItem.Items;
