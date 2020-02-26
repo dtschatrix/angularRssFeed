@@ -7,7 +7,7 @@ export class RssRouteActivator implements CanActivate {
     constructor(private rss: RssSearchService, private router: Router) { }
 
     canActivate() {
-        const RssExists = !!this.rss.currentData;
+        const RssExists = !!this.rss.currentNewsData;
         if (!RssExists) {
             this.router.navigate(['/404']);
         }

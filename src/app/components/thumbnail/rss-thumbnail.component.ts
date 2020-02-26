@@ -1,27 +1,18 @@
 import { Component, Input, OnInit} from '@angular/core';
-import { NewsPost } from '../../interfaces/NewsPostInterface';
 import {Observable} from 'rxjs';
-import { RssSearchService } from '../../services/rss-search.service';
 import { RssSearchComponent } from 'src/app/services/rss-search.component';
+import { NewsItem } from 'src/app/interfaces/NewsItemInterface';
 
 @Component({
   selector: 'app-rss-thumbnail',
   templateUrl: './rss-thumbnail.component.html' ,
 })
 
-export class RssThumbnailComponent implements OnInit {
+export class RssThumbnailComponent {
 
   @Input() RssData: any;
-
-  item: NewsPost;
+  newsItem: Observable<NewsItem>;
 
   constructor(private rss: RssSearchComponent) {}
-
-  ngOnInit(): void {
-  }
-
-  GetNewsItem(id: number) {
-    //this.rss.getNewsItem(id);
-  }
 
 }

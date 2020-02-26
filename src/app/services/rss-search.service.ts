@@ -4,19 +4,19 @@ import {NewsPost} from '../interfaces/NewsPostInterface';
 import { throwError, BehaviorSubject, Observable, pipe} from 'rxjs';
 import {catchError, tap, map} from 'rxjs/operators';
 import {ToastrService} from 'ngx-toastr';
-import { NewsItem } from '../interfaces/NewsItemInterface';
-
 
 @Injectable({
     providedIn: 'root',
 })
 export class RssSearchService {
 
-  private bs_data = new BehaviorSubject<NewsPost>(null);
-  currentData = this.bs_data.asObservable();
-  constructor(private http: HttpClient, private toast: ToastrService){ }
+  private NewsData = new BehaviorSubject<NewsPost>(null);
+  currentNewsData = this.NewsData.asObservable();
+
+  constructor(private http: HttpClient, private toast: ToastrService) { }
+
   getJsonObservable(link: string) {
-    return this.http.
+    this.currentNewsData = this.http.
     get<NewsPost>('https://localhost:44302/api/json/?url=' + link)
     .pipe(
         catchError(err => {
@@ -26,16 +26,19 @@ export class RssSearchService {
             ),
         tap(() => this.toast.success('Rss component successfully created'))
         );
+    return this.currentNewsData;
   }
-  updateData(data){
-    this.bs_data.next(data);
+
+  updateDataSelection(data) {
+    this.NewsData.next(data);
   }
 
 getNewsItem(id: number) {
-     this.currentData.pipe(map(
-       dataItem => {
+    this.currentNewsData.pipe(map(
+      dataItem => {
          const itemlist = dataItem.Items;
-         return itemlist.find(item => item.Id === id);
-       }));
-      }
-    }
+         itemlist.find(item => item.Id === id);
+          }
+    ));
+  }
+}
