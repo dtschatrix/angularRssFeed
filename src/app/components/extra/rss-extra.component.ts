@@ -1,7 +1,8 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, OnDestroy} from '@angular/core';
 import { RssSearchService } from '../../services/rss-search.service';
 import { ActivatedRoute } from '@angular/router';
 import { NewsItem } from '../../interfaces/NewsItemInterface';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-rss-extra',
@@ -9,12 +10,16 @@ import { NewsItem } from '../../interfaces/NewsItemInterface';
   styleUrls: ['./rss-extra.component.css'],
 })
 
-export class RssExtraComponent {
+export class RssExtraComponent implements OnDestroy {
   NewsPost: NewsItem;
-
+  subscription: Subscription;
   constructor(private RssService: RssSearchService, private route: ActivatedRoute) {
-    this.RssService.currentNewsData.subscribe(data => this.NewsPost = data.Items
+    this.subscription = this.RssService.currentNewsData.subscribe(data => this.NewsPost = data.Items
       .find(item => item.Id.toString() === this.route.snapshot.paramMap.get("id")));
   }
+  ngOnDestroy(): void {
+        this.subscription.unsubscribe();
+  }
+
 
 }

@@ -15,7 +15,7 @@ export class RssSearchService {
 
   constructor(private http: HttpClient, private toast: ToastrService) { }
 
-  getJsonObservable(link: string) {
+  getJsonObservable(link: string): Observable<NewsPost> {
     this.currentNewsData = this.http.
     get<NewsPost>('https://localhost:44302/api/json/?url=' + link)
     .pipe(
@@ -29,16 +29,8 @@ export class RssSearchService {
     return this.currentNewsData;
   }
 
-  updateDataSelection(data) {
+  updateDataSelection(data): void {
     this.NewsData.next(data);
   }
 
-getNewsItem(id: number) {
-    this.currentNewsData.pipe(map(
-      dataItem => {
-         const itemlist = dataItem.Items;
-         itemlist.find(item => item.Id === id);
-          }
-    ));
-  }
 }
