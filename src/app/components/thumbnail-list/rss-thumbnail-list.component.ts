@@ -1,7 +1,7 @@
 import { Component, Input} from '@angular/core';
 import {Observable} from 'rxjs';
 import { RssSearchComponent } from 'src/app/components/search/rss-search.component';
-import { NewsItem } from 'src/app/interfaces/NewsItemInterface';
+import { NewsItem } from 'src/app/interfaces/news-item';
 
 @Component({
   selector: 'app-rss-thumbnail-list',

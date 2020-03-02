@@ -1,7 +1,7 @@
 import { Component, OnDestroy} from '@angular/core';
 import { RssSearchService } from '../../services/rss-search.service';
 import { ActivatedRoute } from '@angular/router';
-import { NewsItem } from '../../interfaces/NewsItemInterface';
+import { NewsItem } from '../../interfaces/news-item';
 import { Subscription } from 'rxjs';
 
 @Component({

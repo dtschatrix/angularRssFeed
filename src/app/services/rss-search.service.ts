@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {NewsPost} from '../interfaces/NewsPostInterface';
+import {NewsPost} from '../interfaces/news-post';
 import { throwError, BehaviorSubject, Observable, pipe} from 'rxjs';
-import {catchError, tap, map} from 'rxjs/operators';
+import {catchError, tap, map, first} from 'rxjs/operators';
 import {ToastrService} from 'ngx-toastr';
 
 @Injectable({
@@ -24,8 +24,9 @@ export class RssSearchService {
             return throwError(err);
                         }
               ),
-        tap(() => this.toast.success('Rss component successfully created')))
-        .subscribe(res =>  this.newsData.next(res));
+        tap(() => this.toast.success('Rss component successfully created')),
+        first())
+      .subscribe(res =>  this.newsData.next(res));
     return this.newsData;
     }
 }

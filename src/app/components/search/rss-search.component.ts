@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import {RssSearchService} from '../../services/rss-search.service';
-import { NewsPost } from '../../interfaces/NewsPostInterface';
+import { NewsPost } from '../../interfaces/news-post';
 import { Observable } from 'rxjs';
 
 @Component({
