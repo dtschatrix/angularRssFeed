@@ -1,4 +1,4 @@
-import {Router, ActivatedRouteSnapshot, CanActivate} from '@angular/router';
+import {Router, CanActivate} from '@angular/router';
 import {Injectable} from '@angular/core';
 import {RssSearchService} from '../services/rss-search.service';
 
@@ -7,10 +7,10 @@ export class RssRouteActivator implements CanActivate {
     constructor(private rss: RssSearchService, private router: Router) { }
 
     canActivate() {
-        const RssExists = !!this.rss.currentNewsData;
-        if (!RssExists) {
+        const rssExists = !!this.rss.NewsData;
+        if (!rssExists) {
             this.router.navigate(['/404']);
         }
-        return RssExists;
+        return rssExists;
     }
 }

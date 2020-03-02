@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, OnDestroy} from '@angular/core';
+import { Component, OnDestroy} from '@angular/core';
 import { RssSearchService } from '../../services/rss-search.service';
 import { ActivatedRoute } from '@angular/router';
-import { NewsItem } from '../../interfaces/NewsItemInterface';
+import { NewsItem } from '../../interfaces/news-item';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -11,11 +11,11 @@ import { Subscription } from 'rxjs';
 })
 
 export class RssExtraComponent implements OnDestroy {
-  NewsPost: NewsItem;
+  newsPost: NewsItem;
   subscription: Subscription;
   constructor(private RssService: RssSearchService, private route: ActivatedRoute) {
-    this.subscription = this.RssService.currentNewsData.subscribe(data => this.NewsPost = data.Items
-      .find(item => item.Id.toString() === this.route.snapshot.paramMap.get("id")));
+    this.subscription = this.RssService.NewsData.subscribe(data => this.newsPost = data.Items
+      .find(item => item.Id.toString() === this.route.snapshot.paramMap.get('id')));
   }
   ngOnDestroy(): void {
         this.subscription.unsubscribe();

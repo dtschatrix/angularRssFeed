@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RssThumbnailComponent } from './rss-thumbnail.component';
+import { RssThumbnailListComponent } from './rss-thumbnail-list.component';
 
 describe('RssThumbnailComponent', () => {
-  let component: RssThumbnailComponent;
-  let fixture: ComponentFixture<RssThumbnailComponent>;
+  let component: RssThumbnailListComponent;
+  let fixture: ComponentFixture<RssThumbnailListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RssThumbnailComponent ]
+      declarations: [ RssThumbnailListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RssThumbnailComponent);
+    fixture = TestBed.createComponent(RssThumbnailListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
