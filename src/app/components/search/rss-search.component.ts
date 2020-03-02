@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
-import {RssSearchService} from './rss-search.service';
-import { NewsPost } from '../interfaces/NewsPostInterface';
+import {RssSearchService} from '../../services/rss-search.service';
+import { NewsPost } from '../../interfaces/NewsPostInterface';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -17,7 +17,6 @@ export class RssSearchComponent {
 
   RunService(link: string) {
     this.rssNewsPost = this.rss.getJsonObservable(link);
-    this.rss.updateDataSelection(this.rssNewsPost);
   }
 
 }

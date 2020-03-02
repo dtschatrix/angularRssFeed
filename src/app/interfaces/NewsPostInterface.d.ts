@@ -1,17 +1,10 @@
 import { NewsItem } from './NewsItemInterface';
+import { Feed } from './FeedItemInterface';
 
 export interface NewsPost {
    NewsId?: number;
    Message?: string;
    Status?: string;
-   Feed?: {
-     Id?: number,
-     Url?: string,
-     Title?: string,
-     Link?: URL,
-     Author?: string,
-     Description?: string,
-     Image?: URL
-   };
+   Feed?: Feed;
    Items?: NewsItem[];
 }

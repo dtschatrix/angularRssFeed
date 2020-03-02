@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RssExtraComponent } from '../components/rss-extra.component';
+import { RssExtraComponent } from './rss-extra.component';
 
 describe('RssExtraComponent', () => {
   let component: RssExtraComponent;

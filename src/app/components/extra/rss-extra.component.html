@@ -1,21 +1,20 @@
 <div class="container">
-    <div *ngIf="NewsPost">
-        <p>{{NewsPost.Id}}</p>
+    <div *ngIf="newsPost">
+        <p>{{newsPost.Id}}</p>
     </div>
     <!-- <img [src] = "rss.feed.image", [alt] ="rss.feed.title">
  -->
     <div class ="row">
         <div class ="col-md-11">
-            <h2>{{NewsPost.Title}}</h2>
         </div>
     </div>
 
     <div class="row">
         <div class ="col-md-6">
-            <div>{{NewsPost.PubDate}}</div>
+            <div></div>
         </div>
         <div class="col-xs">
-            <div>{{NewsPost.Description}}</div>
+            <div>{{newsPost.Description}}</div>
         </div>
     </div>
 </div>

@@ -3,8 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from '../components/about/about.component';
 import { RssExtraComponent } from '../components/extra/rss-extra.component';
 import {PageNotFoundComponent} from '../components/notfound/page-not-found.component';
-import { RssRouteActivator } from './rss-activateroute.module';
-import { RssSearchComponent } from '../services/rss-search.component';
+import { RssSearchComponent } from '../components/search/rss-search.component';
 
 const routes: Routes = [
   {path: '', component: RssSearchComponent},
