@@ -11,7 +11,8 @@ import { Observable } from 'rxjs';
 
 export class RssSearchComponent {
 
-  rssNewsPost: Observable<NewsPost>;
+ public rssNewsPost: Observable<NewsPost>;
+
 
   constructor(private rss: RssSearchService) { }
 

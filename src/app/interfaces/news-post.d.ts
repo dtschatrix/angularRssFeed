@@ -1,7 +1,7 @@
 import { NewsItem } from './news-item';
 import { Feed } from './feed';
 
-export interface NewsPost {
+export interface NewsPost  {
    NewsId?: number;
    Message?: string;
    Status?: string;
