@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {NewsPost} from '../interfaces/news-post';
-import { throwError, BehaviorSubject, Observable, pipe} from 'rxjs';
-import {catchError, tap, map, first} from 'rxjs/operators';
+import { throwError, BehaviorSubject, Observable} from 'rxjs';
+import {catchError, tap,  first} from 'rxjs/operators';
 import {ToastrService} from 'ngx-toastr';
 
 @Injectable({
@@ -10,7 +10,7 @@ import {ToastrService} from 'ngx-toastr';
 })
 export class RssSearchService {
   private newsData = new BehaviorSubject<NewsPost>(null);
-  get NewsData() {
+  public get NewsData() {
     return this.newsData.asObservable();
   }
     constructor(private http: HttpClient, private toast: ToastrService) { }

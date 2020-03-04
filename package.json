@@ -19,6 +19,8 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "@ngrx/effects": "^8.6.0",
+    "@ngrx/store": "^8.6.0",
     "bootstrap": "^4.4.1",
     "ngx-toastr": "^11.3.3",
     "primeflex": "^1.0.0",

@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import {StoreModule } from '@ngrx/store';
-import { rssReducer } from '../store/reducers/rss.reducer';
 import { RssRoutingModule } from '../routing/rss-routing.module';
 import { RssThumbnailListComponent } from '../components/thumbnail-list/rss-thumbnail-list.component';
 import { RssSearchComponent } from '../components/search/rss-search.component';
 import { ToastrModule } from 'ngx-toastr';
 import { RssExtraComponent } from '../components/extra/rss-extra.component';
+import { NewsItemReducer } from '../store/reducers/newspost.reducer';
 
 @NgModule({
     declarations: [
@@ -21,7 +21,7 @@ import { RssExtraComponent } from '../components/extra/rss-extra.component';
     BrowserModule,
     HttpClientModule,
     RssRoutingModule,
-    StoreModule.forFeature('rss', rssReducer),
+    StoreModule.forFeature('NewsPost', NewsItemReducer),
     ToastrModule.forRoot()
     ],
     providers: [],

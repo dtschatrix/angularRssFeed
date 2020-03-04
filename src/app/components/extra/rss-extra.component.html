@@ -1,4 +1,5 @@
 <div class="container">
+    <div *ngIf = "news$ | async"> 
     <div *ngIf="newsPostFromNgRx">
         hello world!
         {{newsPostFromNgRx.Id}} </div>

@@ -1,4 +1,4 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { Observable } from 'rxjs';
 import { RssSearchComponent } from 'src/app/components/search/rss-search.component';
 import { NewsItem } from 'src/app/interfaces/news-item';
@@ -15,11 +15,13 @@ export class RssThumbnailListComponent {
   @Input() rssData: any;
   newsItem: Observable<NewsItem>;
   displayCode: boolean;
-  constructor(private store: Store<fromRss.RssState>, private rss: RssSearchComponent) {}
+  constructor(private store: Store<fromRss.RssState>, private rss: RssSearchComponent) {
+    //this.store.dispatch({type: '[News Post] All Post Loaded'});
+  }
 
   checkChanged(value: boolean): void {
     this.store.dispatch({
-      type: '[RssData] Load NewsItem',
+      type: '[NewsPost] Load Failed',
       payload: value
     });
   }
